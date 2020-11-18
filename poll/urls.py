@@ -8,7 +8,7 @@ app_name = "polls"
 urlpatterns = [
 	path('poll/', PollView.as_view()),
 	path('poll/<int:pk>', SinglePollView.as_view()),
-	path('acitve_poll/', ActivePollView.as_view()),
+	path('active_poll/', ActivePollView.as_view()),
 	path('question/', QuestionView.as_view()),
 	path('question/<int:pk>', SingleQuestionView.as_view()),
 	path('answer/', AnswerView.as_view()),
