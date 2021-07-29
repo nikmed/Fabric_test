@@ -2,7 +2,22 @@ version: "3.8"
    
 services:
   api:
-    build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    build: .  
+    command: bash -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
     ports:
-      - "8000:8000"
+      - 8000:8000
+    networks:
+      - default
+    depends_on:
+      - postgres
+    restart: always
+  postgres:
+    restart: always
+    image: postgres:13
+    environment:
+      PGUSER: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "2390"
+      POSTGRES_DB: Fabric
+    networks:
+      - default

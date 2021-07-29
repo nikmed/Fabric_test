@@ -43,6 +43,7 @@ localhost:8000/api/question/<int:id>
 ```sh
 {
     "text": "Text",
+    "answer": "Right answer"
     "question_type": "TXT",
     "poll": 1
 }

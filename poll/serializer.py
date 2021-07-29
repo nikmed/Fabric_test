@@ -27,6 +27,7 @@ class QuestionSerializer(serializers.ModelSerializer):
 		fields = [
 		'id',
 		'text',
+		'answer',
 		'question_type',
 		'poll'
 		]
@@ -35,14 +36,9 @@ class QuestionSerializer(serializers.ModelSerializer):
 
 class AnswerSerializer(serializers.ModelSerializer):
 	class Meta:
-		model = Answer
+		model = Question
 		fields = [
-		'id',
 		'user_id',
+		'answer',
 		'question_id',
-		'answer'
 		]
-		read_only_fields = [
-		'id'
-		] 
-

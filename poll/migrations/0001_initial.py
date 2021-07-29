@@ -13,7 +13,13 @@ class Migration(migrations.Migration):
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
+    def generate_superuser(apps, schema_editor):
+        from django.contrib.auth import get_user_model
+        User = get_user_model()
+        User.objects.create_superuser('admin','admin@admin.ru','password')
+
     operations = [
+        migrations.RunPython(generate_superuser),
         migrations.CreateModel(
             name='Poll',
             fields=[
